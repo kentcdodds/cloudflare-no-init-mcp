@@ -10,12 +10,13 @@ export class MyMCP extends McpAgent {
 	});
 
 	async init() {
-		setTimeout(() => {
-			console.log('CLIENT CAPABILITIES', this.server.server.getClientCapabilities())
-		}, 1000)
 		// Simple addition tool
 		this.server.tool("add", { a: z.number(), b: z.number() }, async ({ a, b }) => ({
 			content: [{ type: "text", text: String(a + b) }],
+		}));
+
+		this.server.tool("client_capabilities", async () => ({
+			content: [{ type: "text", text: JSON.stringify(this.server.server.getClientCapabilities() ?? 'No client capabilities') }],
 		}));
 
 		// Calculator tool with multiple operations
