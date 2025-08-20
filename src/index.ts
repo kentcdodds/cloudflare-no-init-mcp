@@ -10,6 +10,9 @@ export class MyMCP extends McpAgent {
 	});
 
 	async init() {
+		setTimeout(() => {
+			console.log('CLIENT CAPABILITIES', this.server.server.getClientCapabilities())
+		}, 1000)
 		// Simple addition tool
 		this.server.tool("add", { a: z.number(), b: z.number() }, async ({ a, b }) => ({
 			content: [{ type: "text", text: String(a + b) }],
