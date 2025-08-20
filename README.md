@@ -10,14 +10,15 @@ npm run dev
 In another tab:
 
 ```
-node test.js
+npm run inspect
 ```
 
-Notice you get:
+1. In the Inspector, list the available tools.
+2. Run the Git capabilities tool and observe that you have the proper capabilities.
+3. Restart the server.
+4. Go back to the Inspector, but do not reconnect.
+5. Run the Git capabilities tool again; you will notice that you have no capabilities.
+6. Now, reconnect in the Inspector.
+7. Run the Git capabilities tool once more; you should have the proper capabilities again.
 
-```
-CLIENT CAPABILITIES { elicitation: {} }
-CLIENT CAPABILITIES undefined
-```
-
-This is confusing and wrong. First you probably shouldn't be getting more than one log of the client capabilities because we really should only have one instance of the MCP server. Secondly, we are retrieving client capabilities for a server that hasn't yet been initialized which leads to issues down the line if you're trying to do things based off of client capabilities.
+This demonstrates that the problem occurs after a server restart, when the client (the Inspector in this case) is not reconnected.
