@@ -1,5 +1,7 @@
 # Issue with cloudflare/agents
 
+https://www.loom.com/share/5254458669e64e6f8b39fb61a20fec68
+
 ```
 git clone https://github.com/kentcdodds/cloudflare-no-init-mcp.git
 cd ./cloudflare-no-init-mcp
